@@ -26,5 +26,10 @@ public class AutoClickerPresenter {
         robot.mouseRelease(InputEvent.BUTTON3_MASK);
         robot.delay(ms);
     }
+    public void executeMouseMiddle(){
+        robot.mousePress(InputEvent.BUTTON2_MASK);
+        robot.mouseRelease(InputEvent.BUTTON2_MASK);
+        robot.delay(ms);
+    }
 
 }

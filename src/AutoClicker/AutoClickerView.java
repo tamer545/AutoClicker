@@ -22,10 +22,12 @@ public class AutoClickerView extends JFrame {
         setSize(700, 650);
         setContentPane(mainPanel);
         setLocationRelativeTo(null);
+        setResizable(false);
         mainPanel.isFocusable();
         setVisible(true);
 
         mouseButtonComboBox.addItem("Left Mouse Button");
+        mouseButtonComboBox.addItem("Middle Mouse Button");
         mouseButtonComboBox.addItem("Right Mouse Button");
 
 
@@ -50,8 +52,10 @@ public class AutoClickerView extends JFrame {
                         for (int i = 0; i < clicksCount; i++) {
                             if (mouseButtonComboBox.getSelectedItem().equals("Left Mouse Button")) {
                                 presenter.executeMouseLeft();
-                            } else if (mouseButtonComboBox.getSelectedItem().equals("Right Mouse Button")) {
+                            } else if (mouseButtonComboBox.getSelectedItem().equals("Middle Mouse Button")) {
                                 presenter.executeMouseRight();
+                            } else if (mouseButtonComboBox.getSelectedItem().equals("Right Mouse Button")) {
+                                presenter.executeMouseMiddle();
                             }
                         }
                     }
