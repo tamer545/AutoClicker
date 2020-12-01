@@ -15,9 +15,15 @@ public class AutoClickerPresenter {
     public void confirm(int ms){
         this.ms =  ms;
     }
-    public void execute(){
+
+    public void executeMouseLeft(){
         robot.mousePress(InputEvent.BUTTON1_MASK);
         robot.mouseRelease(InputEvent.BUTTON1_MASK);
+        robot.delay(ms);
+    }
+    public void executeMouseRight(){
+        robot.mousePress(InputEvent.BUTTON3_MASK);
+        robot.mouseRelease(InputEvent.BUTTON3_MASK);
         robot.delay(ms);
     }
 

@@ -11,6 +11,7 @@ public class AutoClickerView extends JFrame {
     private JPanel mainPanel;
     private JButton STOPButton;
     private JTextField clicksCountField;
+    private JComboBox mouseButtonComboBox;
 
     private int clicksCount;
 
@@ -18,10 +19,13 @@ public class AutoClickerView extends JFrame {
     public AutoClickerView() {
         super("AutoClicker");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(550, 450);
+        setSize(700, 650);
         setContentPane(mainPanel);
         mainPanel.isFocusable();
         setVisible(true);
+
+        mouseButtonComboBox.addItem("Left Mouse Button");
+        mouseButtonComboBox.addItem("Right Mouse Button");
 
 
         confirmButton.addActionListener(e -> {
@@ -43,7 +47,11 @@ public class AutoClickerView extends JFrame {
                 if (e.getKeyCode() == KeyEvent.VK_F7) {
                     if (clicksCount >= 5) {
                         for (int i = 0; i < clicksCount; i++) {
-                            presenter.execute();
+                            if (mouseButtonComboBox.getSelectedItem().equals("Left Mouse Button")) {
+                                presenter.executeMouseLeft();
+                            } else if (mouseButtonComboBox.getSelectedItem().equals("Right Mouse Button")) {
+                                presenter.executeMouseRight();
+                            }
                         }
                     }
                 }
