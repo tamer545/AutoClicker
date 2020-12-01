@@ -13,7 +13,7 @@ public class AutoClickerView extends JFrame {
     public AutoClickerView() {
         super("AutoClicker");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(600, 400);
+        setSize(800, 450);
         setContentPane(mainPanel);
         setVisible(true);
         confirmButton.addActionListener(e -> {
