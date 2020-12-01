@@ -21,6 +21,7 @@ public class AutoClickerView extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(700, 650);
         setContentPane(mainPanel);
+        setLocationRelativeTo(null);
         mainPanel.isFocusable();
         setVisible(true);
 
