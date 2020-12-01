@@ -5,12 +5,14 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class AutoClickerView extends JFrame {
-    private KeyboardFocusManager keyboardFocusManager;
     private AutoClickerPresenter presenter;
     private JTextField delayField;
     private JButton confirmButton;
     private JPanel mainPanel;
     private JButton STOPButton;
+    private JTextField clicksCountField;
+
+    private int clicksCount;
 
 
     public AutoClickerView() {
@@ -23,7 +25,9 @@ public class AutoClickerView extends JFrame {
 
 
         confirmButton.addActionListener(e -> {
+
             presenter.confirm(Integer.parseInt(delayField.getText()));
+            clicksCount = Integer.parseInt(clicksCountField.getText());
 
         });
         STOPButton.addActionListener(e -> System.exit(0));
@@ -36,16 +40,11 @@ public class AutoClickerView extends JFrame {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                while (e.getKeyCode() == KeyEvent.VK_P) {
-                    if(!mainPanel.hasFocus()) {
-                        presenter.execute();
-                    }
+                for (int i = 0; i < clicksCount; i++) {
+                    presenter.execute();
 
                 }
-                if (e.getKeyCode() == KeyEvent.VK_O) {
-                    System.exit(0);
 
-                }
             }
 
             @Override
@@ -56,7 +55,6 @@ public class AutoClickerView extends JFrame {
         };
         confirmButton.addKeyListener(keyListener);
         mainPanel.addKeyListener(keyListener);
-
 
 
     }
