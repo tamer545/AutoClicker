@@ -40,9 +40,12 @@ public class AutoClickerView extends JFrame {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                for (int i = 0; i < clicksCount; i++) {
-                    presenter.execute();
-
+                if (e.getKeyCode() == KeyEvent.VK_F7) {
+                    if (clicksCount >= 5) {
+                        for (int i = 0; i < clicksCount; i++) {
+                            presenter.execute();
+                        }
+                    }
                 }
 
             }
