@@ -19,7 +19,7 @@ public class AutoClickerView extends JFrame {
     public AutoClickerView() {
         super("AutoClicker");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(700, 650);
+        setSize(700, 450);
         setContentPane(mainPanel);
         setLocationRelativeTo(null);
         setResizable(false);
